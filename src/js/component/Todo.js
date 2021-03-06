@@ -37,6 +37,9 @@ function Todo() {
 						return (
 							<li key={index} className="list-group-item">
 								{item}
+								<button
+									type="button"
+									className="btn-close"></button>
 							</li>
 						);
 					})}
