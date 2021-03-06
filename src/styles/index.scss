@@ -1,9 +1,8 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-body {
-background-color: #E5E5F7;
-background-image: radial-gradient(#444CF7 1px, #E5E5F7 1px);
-background-size: 20px 20px;
+body{
+    background:(linear-gradient(45deg, snow 2px, #f0f0f0 1px));
+    background-size:(5px 5px);
 }
 
 .todo-box {
