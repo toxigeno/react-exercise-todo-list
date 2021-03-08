@@ -8,7 +8,12 @@ function Todo() {
 		if (task != "") {
 			setListTask([...listTask, task]);
 		}
-	};
+    };
+    
+    const deleteTask = item => {
+       setListTask([...listTask, task].filter(task => listTask.item !== item))
+    };
+}
 
 	return (
 		<div className="container">
@@ -38,8 +43,11 @@ function Todo() {
 							<li key={index} className="list-group-item">
 								{item}
 								<button
+                                    onClick={deleteTask}
 									type="button"
-									className="btn-close"></button>
+									className="btn btn-secondary">
+									delete x
+								</button>
 							</li>
 						);
 					})}
