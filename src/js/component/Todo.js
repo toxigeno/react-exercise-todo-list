@@ -10,8 +10,8 @@ function Todo() {
 		}
     };
     
-    const deleteTask = item => {
-       setListTask([...listTask, task].filter(task => listTask.item !== item))
+    const deleteTask = () => {
+       if(task)
     };
 }
 
