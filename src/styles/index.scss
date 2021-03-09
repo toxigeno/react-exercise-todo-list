@@ -3,15 +3,11 @@
 body{
     background:(linear-gradient(45deg, snow 2px, #f0f0f0 1px));
     background-size:(5px 5px);
+
 }
 
 .todo-box {
     background-color: white;
-}
-.hide {
-  display: none;
-}
-.list-group-item:hover + .hide {
- display: inline-block;
+    text-align: left!important;
 }
 

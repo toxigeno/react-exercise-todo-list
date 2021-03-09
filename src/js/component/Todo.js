@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Button } from "reactstrap";
 
 function Todo() {
 	const [task, setTask] = useState("");
 	const [listTask, setListTask] = useState([]);
+	const [isShown, setIsShown] = useState(false);
 
 	const putTask = () => {
 		if (task != "") {
@@ -22,7 +24,7 @@ function Todo() {
 		<div className="container">
 			<div className="todo-box row p-3">
 				<div className="col">
-					<h1>To Do</h1>
+					<h1 className="text-center">To Do</h1>
 					<div className="input-group">
 						<input
 							type="text"
@@ -34,6 +36,7 @@ function Todo() {
 							value={task}
 						/>
 						<div className="input-group-append">
+							{/* botón para meter task */}
 							<button
 								onClick={putTask}
 								className="btn btn-outline-secondary"
@@ -46,22 +49,26 @@ function Todo() {
 						{listTask.map((item, index) => {
 							return (
 								<li
+									onMouseEnter={() => setIsShown(true)}
+									onMouseLeave={() => setIsShown(false)}
 									key={index}
 									className="list-group-item list-group-item-action">
 									{item}
-									<button
-										onClick={() => {
-											deleteTask(index);
-										}}
-										type="button"
-										className="btn btn-secondary hide">
-										x
-									</button>
+									{isShown && (
+										<Button
+											close
+											type="button"
+											className="btn-close"
+											onClick={() => {
+												deleteTask(index);
+											}}
+										/>
+									)}
 								</li>
 							);
 						})}
 					</ul>
-					<small className="text-muted">
+					<small className="text-muted ml-2">
 						{listTask.length} tareas por hacer
 					</small>
 				</div>
