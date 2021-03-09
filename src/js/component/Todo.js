@@ -7,13 +7,16 @@ function Todo() {
 	const putTask = () => {
 		if (task != "") {
 			setListTask([...listTask, task]);
+			setTask("");
+		} else {
+			alert("Por favor ingrese tarea antes de confirmar");
 		}
-    };
-    
-    const deleteTask = () => {
-       if(task)
-    };
-}
+	};
+
+	const deleteTask = indexDelete => {
+		let resultado = listTask.filter((task, index) => index != indexDelete);
+		setListTask(resultado);
+	};
 
 	return (
 		<div className="container">
@@ -27,6 +30,7 @@ function Todo() {
 						onChange={e => {
 							setTask(e.target.value);
 						}}
+						value={task}
 					/>
 					<div className="input-group-append">
 						<button
@@ -43,16 +47,20 @@ function Todo() {
 							<li key={index} className="list-group-item">
 								{item}
 								<button
-                                    onClick={deleteTask}
+									onClick={() => {
+										deleteTask(index);
+									}}
 									type="button"
 									className="btn btn-secondary">
-									delete x
+									x
 								</button>
 							</li>
 						);
 					})}
 				</ul>
-				<small className="text-muted">Mucho por hacer</small>
+				<small className="text-muted">
+					{listTask.length} tareas por hacer
+				</small>
 			</div>
 		</div>
 	);
