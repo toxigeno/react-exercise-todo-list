@@ -4,7 +4,6 @@ import { Button } from "reactstrap";
 function Todo() {
 	const [task, setTask] = useState("");
 	const [listTask, setListTask] = useState([]);
-	const [isShown, setIsShown] = useState(false);
 
 	const putTask = () => {
 		if (task != "") {
@@ -49,21 +48,16 @@ function Todo() {
 						{listTask.map((item, index) => {
 							return (
 								<li
-									onMouseEnter={() => setIsShown(true)}
-									onMouseLeave={() => setIsShown(false)}
 									key={index}
-									className="list-group-item list-group-item-action">
+									className="d-flex list-group-item list-group-item-action">
 									{item}
-									{isShown && (
-										<Button
-											close
-											type="button"
-											className="btn-close"
+									<div id="close-icon" className="ml-auto">
+										<i
 											onClick={() => {
 												deleteTask(index);
 											}}
-										/>
-									)}
+											className="far fa-times-circle"></i>
+									</div>
 								</li>
 							);
 						})}

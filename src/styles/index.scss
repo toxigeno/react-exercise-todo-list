@@ -5,9 +5,16 @@ body{
     background-size:(5px 5px);
 
 }
-
 .todo-box {
     background-color: white;
     text-align: left!important;
 }
 
+
+.list-group-item .far {
+    display: none;
+}
+
+.list-group-item:hover .far{
+    display: inline-block;
+}
